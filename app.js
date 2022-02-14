@@ -1,12 +1,16 @@
-document.getElementById("incript-plus").addEventListener("click", function () {
+function incriptionNumber(incription) {
   const productQuantity = document.getElementById("product-quantity");
-  const productNumber = parseInt(productQuantity.value) + 1;
-  productQuantity.value = productNumber;
-  // console.log(productNumber)
+  const productNumber = parseInt(productQuantity.value);
+  if (incription == true) {
+    productQuantity.value = productNumber + 1;
+  } else if (productNumber > 1) {
+    productQuantity.value = productNumber - 1;
+  }
+}
+
+document.getElementById("incript-plus").addEventListener("click", function () {
+  incriptionNumber(true);
 });
 document.getElementById("decript-minus").addEventListener("click", function () {
-  const productQuantity = document.getElementById("product-quantity");
-  const productNumber = parseInt(productQuantity.value) - 1;
-  productQuantity.value = productNumber;
-  // console.log(productNumber)
+  incriptionNumber(false);
 });
